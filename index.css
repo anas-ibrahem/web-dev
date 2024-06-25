@@ -1,0 +1,46 @@
+/* Default CSS classes */
+
+
+ /*make width includes the border  
+ https://www.paulirish.com/2012/box-sizing-border-box-ftw */
+ 
+* {
+    box-sizing: border-box;
+  }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    color: cyan;
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Add more classes as needed */
