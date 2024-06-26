@@ -1,0 +1,124 @@
+/* Default CSS classes */
+
+
+ /*make width includes the border  
+ https://www.paulirish.com/2012/box-sizing-border-box-ftw */
+ 
+* {
+    box-sizing: border-box;
+  }
+
+  .headerstyle {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 50px;
+    color: black;
+    font-style: italic;
+    text-align: center;
+
+
+  }
+
+  .grid {
+
+    display: grid;
+    grid-template-columns: repeat(7 , 1fr);
+    row-gap: -3px;
+    columns: 10px;
+
+  }
+
+  .flexcenter {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-bar {
+    padding: 20px;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    border: 3px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 122px 122px 0 0px;
+    margin:0px;
+    grid-column: span 7;
+  }
+
+  .nav-bar li {
+    list-style: none;
+}
+
+  .item {
+    font-size: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: darkgrey;
+    text-decoration: none;
+
+  }
+
+  .item:hover
+  {
+    text-decoration: underline 3px;
+    color: gray;
+
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    padding: 20px;
+    border: 3px;
+    margin-top: -3px;
+    border-color: black;
+    border-style: solid;
+
+  }
+
+  .articleheader{
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+
+  }
+
+
+  
+  .largearticle {
+    grid-column: span 3;
+    
+  }
+
+  .midarticle {
+
+    margin-left: -3px;
+    margin-right: -3px;
+
+  }
+  
+  /* .rightarticle {
+
+    margin-left: -3px;
+    
+  }
+  
+  .leftarticle {
+
+    margin-right: -3px;
+    
+  } */
+
+.smallarticle {
+    
+grid-column: span 2;
+    
+}
+
+.image {
+    margin: 20px auto;
+    width: 75%;
+    display: flex; 
+}
