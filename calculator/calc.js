@@ -67,8 +67,7 @@ function calculate(operator) {
       break;
 
     default:
-      if (runningresult === 0) runningresult = parseInt(buffer);
-
+      if (buffer != 0) runningresult = parseInt(buffer); // Handle New Input Case & Multiple Clicks
       break;
   }
 }
