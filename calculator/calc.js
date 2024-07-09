@@ -1,73 +1,54 @@
 const result = document.querySelector(".result");
-let runningresult = 0;
-let buffer = 0;
-let operator = 0;
+
+let runningresult = 0; // Stores the result (behind the scenes)
+let buffer = 0; // Stores The Current Value printed on Screen
+let prevOperator = 0; // Stores The Last Operation
 
 function print(text) {
   result.innerText = text;
 }
 
-function update()
-{
-  if (operator === "=") 
-    {
-    print(runningresult);
+function buttonClick(event) {
+  if (isNaN(parseInt(event))) {
+    handleSymbol(event);
+    if (event != "←") print(runningresult);
+    else {
+      print(buffer);
+    }
   } else {
+    handleValue(event);
     print(buffer);
   }
-}
-
-function buttonClick(event) {
-  if (isNaN(parseInt(event))) handleSymbol(event);
-  else handleValue(event);
-
-  update();
 }
 
 function handleValue(value) {
   if (buffer === 0) buffer = value;
   else buffer += value;
-
-  if (operator != 0) {
-    calculate();
-  }
-  
 }
 
 function handleSymbol(symbol) {
-
-
-    switch (symbol) {
-    case "C":
+  switch (symbol) {
+    case "C": // Clear Everything
       buffer = 0;
-      operator = 0;
+      prevOperator = 0;
       runningresult = 0;
       break;
 
-    case "+":
-      operator = "+";
+    case "←":
+      if (buffer.length > 1) buffer = buffer.substring(0, buffer.length - 1);
+      else buffer = 0;
+
       break;
 
-    case "-":
-      operator = "-";
-      break;
-
-    case "×":
-      operator = "*";
-      break;
-
-    case "÷":
-      operator = "/";
-      break;
-
-    case "=":
-      operator = "=";
+    default:
+      calculate(prevOperator);
       buffer = 0;
+      prevOperator = symbol;
       break;
   }
 }
 
-function calculate() {
+function calculate(operator) {
   switch (operator) {
     case "+":
       runningresult += parseInt(buffer);
@@ -77,15 +58,17 @@ function calculate() {
       runningresult -= parseInt(buffer);
       break;
 
-    case "*":
+    case "×":
       runningresult *= parseInt(buffer);
       break;
 
-    case "/":
+    case "÷":
       runningresult /= parseInt(buffer);
       break;
 
     default:
+      if (runningresult === 0) runningresult = parseInt(buffer);
+
       break;
   }
 }
@@ -94,7 +77,9 @@ function init() {
   document
     .querySelector(".keyboard")
     .addEventListener("click", function (event) {
-      buttonClick(event.target.innerText);
+      if (event.target.innerText.length === 1)
+        // Safety for Empty space Area
+        buttonClick(event.target.innerText);
     });
 }
 
