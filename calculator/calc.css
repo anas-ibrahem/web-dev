@@ -1,77 +1,76 @@
-
 * {
-    margin: 0px;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
-.calc{
-margin: 0;
-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-background-color: black;
-width: 400px;
-height: auto;
+.calc {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: black;
+  width: 400px;
+  height: auto;
 
 }
 
-.keysrow{
+.keysrow {
 
-margin: 0;
-display: flex;
-justify-content: space-between;
-width: 400px;
-margin-top: 2px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  width: 400px;
+  margin-top: 2px;
 
 }
 
 
 
-.result{
-    /* border: solid rgb(227, 1, 1) 1px; */
-    color: white;
-    padding: 20px 4px;
-    font-size: 30px;
-    text-align: right;
+.result {
+  /* border: solid rgb(227, 1, 1) 1px; */
+  color: white;
+  padding: 20px 4px;
+  font-size: 30px;
+  text-align: right;
 }
 
-button{
-    height: 98px;
-    width : 98px;
-    font-size: 30px;
-    margin : 0;
-    border: 0;
-    background-color: #d8d9db;
-    cursor: pointer;
+button {
+  height: 98px;
+  width: 98px;
+  font-size: 30px;
+  margin: 0;
+  border: 0;
+  background-color: #d8d9db;
+  cursor: pointer;
 
 }
 
 button:hover {
-    background-color: #ebebeb;
-  }
-  
+  background-color: #ebebeb;
+}
+
 button:active {
-    background-color: #bbbcbe;
-  }
+  background-color: #bbbcbe;
+}
 
 button:last-child {
-    background-color: #df974c;
-    color: white;
+  background-color: #df974c;
+  color: white;
 }
 
 button:last-child:hover {
-    background-color: #dfb07e;
-  }
-  
-button:last-child:active {
-    background-color: #dd8d37;
-  }
-
-.triple{
-
-    width: 299.3px;
+  background-color: #dfb07e;
 }
 
-.double{
-    width: 198.6px;
+button:last-child:active {
+  background-color: #dd8d37;
+}
+
+.triple {
+
+  width: 299.3px;
+}
+
+.double {
+  width: 198.6px;
 }
