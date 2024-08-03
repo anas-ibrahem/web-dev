@@ -45,6 +45,7 @@
     row-gap: 9px;
     max-width: 450px;
     margin: 20px auto;
+    animation: showup 3s linear;
 }
 
 .start-menu {
@@ -90,7 +91,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: redshake 1s linear ;
 }
 
 .correct {
@@ -147,7 +147,17 @@
     }
 }
 
+@keyframes showup {
 
+    0% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+
+    }
+}
 
 @keyframes rainbow {
     0% {
