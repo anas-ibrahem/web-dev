@@ -1,9 +1,15 @@
 /* Default CSS classes */
 
 
- /*make width includes the border  
+ /*make width includes the border
  https://www.paulirish.com/2012/box-sizing-border-box-ftw */
- 
+
+
+/* Search */
+
+/* (allign vs justify) */
+
+
 * {
     box-sizing: border-box;
   }

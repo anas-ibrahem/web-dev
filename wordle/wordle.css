@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Chakra Petch", sans-serif;
+}
+
+
+.main-title {
+    color: rgb(69, 19, 88);
+    text-align: center;
+    font-size: 40px;
+    padding: 20px;
+    animation: purplefade 15s infinite;
+
+}
+
+.sky {
+
+    background-color: rgb(17, 6, 21);
+    background: #000 url(http://www.script-tutorials.com/demos/360/images/stars.png) repeat top center;
+    z-index: 0;
+
+}
+
+.twinkle {
+
+
+    background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+    z-index: 1;
+    animation: move-twink-back 200s linear infinite;
+
+}
+
+
+.game {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 2px;
+    row-gap: 9px;
+    max-width: 450px;
+    margin: 20px auto;
+}
+
+
+
+.game-letter {
+    background-color: rgb(18, 5, 37);
+    color: aliceblue;
+    height: 74px;
+    width: 74px;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 3px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@keyframes purplefade {
+
+    100%,
+    0% {
+        color: rgb(155, 140, 192);
+    }
+
+    50% {
+        color: rgb(255, 255, 255);
+    }
+
+    99% {
+        color: rgb(155, 140, 192);
+    }
+}
+
+
+@keyframes rainbow {
+    0% {
+        background-color: blue;
+    }
+
+    50% {
+        background-color: green;
+    }
+
+    100% {
+        background-color: yellow;
+    }
+}
+
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
