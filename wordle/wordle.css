@@ -112,6 +112,11 @@
 
 }
 
+.nonValid{
+
+    animation: redshake 0.5s linear;
+
+}
 
 
 /* animations */
@@ -134,13 +139,12 @@
 
 @keyframes redshake {
 
-    100%,
     0% {
         border-color: rgb(206, 42, 42);
         margin: 0px 2px;
     }
 
-    99% {
+    100% {
         border-color: #ccc;
         margin: 0 0;
 
