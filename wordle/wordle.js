@@ -124,9 +124,9 @@ function init() {
           buffer[i] = "$";
         }
       }
-
-      console.log(buffer);
-      console.log(check);
+      // TODO remove these lines
+      //console.log(buffer);
+      // console.log(check);
       for (let i = 0; i < WORD_LENGTH; i++) {
         if (buffer[i] !== "$") {
           let loc = check.indexOf(buffer[i]);
@@ -140,7 +140,7 @@ function init() {
       guessNumber++;
       buffer = "";
 
-      if (guessNumber === 6) {
+      if (guessNumber === 6 && check.join("") !== "#####") {
         stat = "lose";
         lMenu.classList.remove("disable");
       } else if (check.join("") === "#####") {
