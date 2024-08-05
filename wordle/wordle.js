@@ -131,7 +131,6 @@ function init() {
 
       guessNumber++;
       buffer = "";
-      inputDisabled = false;
 
       if (guessNumber === 6) {
         stat = "lose";
@@ -149,6 +148,8 @@ function init() {
           letters[guessNumber * WORD_LENGTH + i].classList.remove("nonValid");
       }, 500);
     }
+    inputDisabled = false;
+
   }
 
   function isLetter(letter) {
