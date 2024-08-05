@@ -36,6 +36,7 @@ function reset() {
 }
 
 function init() {
+  // Event Listners to the (Physical Keyboard)
   document.addEventListener("keydown", function handleKeyPress(event) {
     const action = event.key;
 
@@ -50,6 +51,21 @@ function init() {
     }
   });
 
+  // Event Listners to the (Virtual Keyboard)
+  const keys = document.querySelectorAll(".key");
+  keys.forEach((key) => {
+    key.addEventListener("click", function () {
+      const action = key.innerText;
+      if (action === "ENTER") {
+        submit();
+      } else if (action === "←") {
+        backSpace();
+      } else {
+        addLetter(action.toUpperCase());
+      }
+    });
+  });
+
   function addLetter(letter) {
     if (buffer.length === WORD_LENGTH)
       buffer = buffer.substring(0, WORD_LENGTH - 1);
@@ -62,7 +78,7 @@ function init() {
     letters[guessNumber * WORD_LENGTH + buffer.length].innerText = "";
   }
 
- async function submit() {
+  async function submit() {
     if (buffer.length < WORD_LENGTH) {
       // do nothing
     } else if (await isValid(buffer)) {
@@ -92,32 +108,29 @@ function init() {
 
       guessNumber++;
       buffer = "";
+    } else {
+      for (let i = 0; i < WORD_LENGTH; i++) {
+        letters[guessNumber * WORD_LENGTH + i].classList.add("nonValid");
+      }
+      setTimeout(function rem() {
+        for (let i = 0; i < WORD_LENGTH; i++)
+          letters[guessNumber * WORD_LENGTH + i].classList.remove("nonValid");
+      }, 500);
     }
-    else
-    {
-        for (let i = 0; i < WORD_LENGTH; i++){
-            letters[guessNumber * WORD_LENGTH + i].classList.add("nonValid");
-        }
-        setTimeout(function rem(){
-            for (let i = 0; i < WORD_LENGTH; i++)
-                letters[guessNumber * WORD_LENGTH + i].classList.remove("nonValid");
-        } , 500);
+  }
+
+  function isLetter(letter) {
+    return /^[a-zA-Z]$/.test(letter);
+  }
+
+  async function isValid(word) {
+    const res = await fetch("https://words.dev-apis.com/validate-word", {
+      method: "POST",
+      body: JSON.stringify({ word }),
+    });
+
+    const { validWord } = await res.json();
+
+    return validWord;
   }
 }
-
-function isLetter(letter) {
-  return /^[a-zA-Z]$/.test(letter);
-}
-
-async function isValid(word){
-    const res = await fetch("https://words.dev-apis.com/validate-word", {
-        method: "POST",
-        body: JSON.stringify({ word }),
-      }); 
-
-
-      const { validWord } = await res.json();
-
-      return validWord;
-
-}}

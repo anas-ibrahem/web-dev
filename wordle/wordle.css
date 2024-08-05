@@ -7,12 +7,18 @@
     font-family: "Chakra Petch", sans-serif;
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
 .main-title {
     color: rgb(69, 19, 88);
     text-align: center;
     font-size: 40px;
-    padding: 20px;
+    padding: 10px;
     animation: purplefade 15s infinite;
 
 }
@@ -26,8 +32,8 @@
 }
 
 .twinkle {
-
-
+    height: 100%;
+    width: 100%;
     background: transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
     z-index: 1;
     animation: move-twink-back 200s linear infinite;
@@ -43,8 +49,9 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     column-gap: 2px;
     row-gap: 9px;
-    max-width: 450px;
-    margin: 20px auto;
+    max-width: 340px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
     animation: showup 3s linear;
 }
 
@@ -82,9 +89,9 @@
 .game-letter {
     background-color: rgb(18, 5, 37);
     color: aliceblue;
-    height: 74px;
-    width: 74px;
-    font-size: 40px;
+    height: 56px;
+    width: 56px;
+    font-size: 34px;
     text-transform: uppercase;
     font-weight: bold;
     border: 3px solid #ccc;
@@ -112,11 +119,14 @@
 
 }
 
-.nonValid{
+.nonValid {
 
     animation: redshake 0.5s linear;
 
 }
+
+
+
 
 
 /* animations */
@@ -179,6 +189,94 @@
 
 
 @keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -10000px 5000px;
+    }
+}
+
+
+
+
+
+
+/* virtual keyboard */
+
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+}
+
+.keyboard-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.key {
+    color: rgb(210, 226, 241);
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #191928;
+    cursor: pointer;
+}
+
+.key:hover {
+    background-color: #ddd;
+    color: rgb(13, 32, 50);
+}
+
+.key:active {
+    background-color: #ccc;
+}
+
+.control .key {
+    width: 100px
+}
+
+/* responsive custom */
+
+@media screen and (max-width: 850px) {
+
+    .game-letter {
+
+        font-size: 27px;
+
+    }
+
+    .main-title {
+        font-size: 28px;
+    }
+
+    .game-letter {
+
+        width: 46px;
+        height: 46px;
+
+    }
+
+    .game {
+        column-gap: 1px;
+        max-width: 290px;
+    }
+
+    .key {
+        padding: 12px 6px;
+        margin: 4px 2px;
+    }
+
+    .control .key {
+        padding: 10px 15px;
+
+    }
 }
