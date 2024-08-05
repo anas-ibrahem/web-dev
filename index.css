@@ -1,9 +1,21 @@
-/* Default CSS classes */
+Default CSS classes */
 
 
- /*make width includes the border  
- https://www.paulirish.com/2012/box-sizing-border-box-ftw */
- 
+/*make width includes the border
+https://www.paulirish.com/2012/box-sizing-border-box-ftw */
+
+
+
+CSS NOTES
+
+/* leave line height proportional (no unit) */
+/* margin in vertical direction has little weird rule (bigger ones no adding) */
+/* flex-basis vs width */
+/* sr-only & aria-hidden (class is from fontAwesome)*/
+/* [class*="fa-"] */
+
+
+
 * {
     box-sizing: border-box;
   }
@@ -43,4 +55,4 @@
     text-align: right;
 }
 
-/* Add more classes as needed */
+/* Add more classes as needed
