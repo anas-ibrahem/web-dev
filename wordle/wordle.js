@@ -8,11 +8,18 @@ const lMenu = document.getElementById("lose-menu"); // Losing Menu
 const wMenu = document.getElementById("win-menu"); // Winning Menu
 const WORD_LENGTH = 5; // Winning Menu
 let answer = "";
+let stat = "newgame";
+let inputDisabled = false; // Flag to disable input
+
 
 function startGame(choice) {
-  sMenu.classList.add("disable");
-  mode = choice;
+
+
   reset();
+  sMenu.classList.add("disable");
+  lMenu.classList.add("disable");
+  wMenu.classList.add("disable");
+  mode = choice;
 
   fetch(
     `https://words.dev-apis.com/word-of-the-day/?random=${
@@ -25,46 +32,61 @@ function startGame(choice) {
     })
     .then(function (data) {
       answer = data.word.toUpperCase();
-      console.log(answer);
+        // TODO remove this line
+       // console.log(answer);
       init();
     });
 }
 
 function reset() {
+  for (let i = 0; i < 6; i++) {
+    for (let j = 0; j < 5; j++) {
+      letters[i * WORD_LENGTH + j].classList.remove("correct");
+      letters[i * WORD_LENGTH + j].classList.remove("close");
+      letters[i * WORD_LENGTH + j].classList.remove("wrong");
+      letters[i * WORD_LENGTH + j].innerText = "";
+    }
+  }
+
   guessNumber = 0;
   buffer = "";
 }
 
 function init() {
-  // Event Listners to the (Physical Keyboard)
-  document.addEventListener("keydown", function handleKeyPress(event) {
-    const action = event.key;
 
-    if (action === "Enter") {
-      submit();
-    } else if (action === "Backspace") {
-      backSpace();
-    } else if (isLetter(action)) {
-      addLetter(action.toUpperCase());
-    } else {
-      // do nothing
-    }
-  });
-
-  // Event Listners to the (Virtual Keyboard)
-  const keys = document.querySelectorAll(".key");
-  keys.forEach((key) => {
-    key.addEventListener("click", function () {
-      const action = key.innerText;
-      if (action === "ENTER") {
+  if (stat === "newgame") {
+    // Event Listners to the (Physical Keyboard)
+    document.addEventListener("keydown", function handleKeyPress(event) {
+      const action = event.key;
+      if(inputDisabled || stat != "playing") return;
+      if (action === "Enter") {
         submit();
-      } else if (action === "←") {
+      } else if (action === "Backspace") {
         backSpace();
-      } else {
+      } else if (isLetter(action)) {
         addLetter(action.toUpperCase());
+      } else {
+        // do nothing
       }
     });
-  });
+
+    // Event Listners to the (Virtual Keyboard)
+    const keys = document.querySelectorAll(".key");
+    keys.forEach((key) => {
+      key.addEventListener("click", function () {
+        const action = key.innerText;
+        if(inputDisabled || stat != "playing") return;
+        if (action === "ENTER") {
+          submit();
+        } else if (action === "←") {
+          backSpace();
+        } else {
+          addLetter(action.toUpperCase());
+        }
+      });
+    });
+  }
+  stat="playing";
 
   function addLetter(letter) {
     if (buffer.length === WORD_LENGTH)
@@ -79,6 +101,7 @@ function init() {
   }
 
   async function submit() {
+    inputDisabled = true;
     if (buffer.length < WORD_LENGTH) {
       // do nothing
     } else if (await isValid(buffer)) {
@@ -108,6 +131,15 @@ function init() {
 
       guessNumber++;
       buffer = "";
+      inputDisabled = false;
+
+      if (guessNumber === 6) {
+        stat = "lose";
+        lMenu.classList.remove("disable");
+      } else if (check.join("") === "#####") {
+        stat = "win";
+        wMenu.classList.remove("disable");
+      }
     } else {
       for (let i = 0; i < WORD_LENGTH; i++) {
         letters[guessNumber * WORD_LENGTH + i].classList.add("nonValid");
