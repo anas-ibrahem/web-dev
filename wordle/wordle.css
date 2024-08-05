@@ -271,6 +271,7 @@ body {
     }
 
     .key {
+        font-size: 15px;
         padding: 12px 12px;
         margin: 4px 2px;
     }
