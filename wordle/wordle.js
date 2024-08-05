@@ -103,8 +103,16 @@ function init() {
   async function submit() {
     inputDisabled = true;
     if (buffer.length < WORD_LENGTH) {
-      // do nothing
-    } else if (await isValid(buffer)) {
+      for (let i = 0; i < WORD_LENGTH; i++) {
+        letters[guessNumber * WORD_LENGTH + i].classList.add("nonValid");
+      }
+      setTimeout(function rem() {
+        for (let i = 0; i < WORD_LENGTH; i++)
+          letters[guessNumber * WORD_LENGTH + i].classList.remove("nonValid");
+      }, 500);
+        
+    } 
+    else if (await isValid(buffer)) {
       let check = answer;
       check = check.split("");
       buffer = buffer.split("");
