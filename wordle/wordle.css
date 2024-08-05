@@ -17,8 +17,8 @@ body {
 .main-title {
     color: rgb(69, 19, 88);
     text-align: center;
-    font-size: 40px;
-    padding: 10px;
+    font-size: 30px;
+    padding: 8px;
     animation: purplefade 15s infinite;
 
 }
@@ -89,8 +89,8 @@ body {
 .game-letter {
     background-color: rgb(18, 5, 37);
     color: aliceblue;
-    height: 56px;
-    width: 56px;
+    height: 53px;
+    width: 53px;
     font-size: 34px;
     text-transform: uppercase;
     font-weight: bold;
@@ -222,7 +222,7 @@ body {
 
 .key {
     color: rgb(210, 226, 241);
-    margin: 5px;
+    margin: 4px;
     padding: 10px 15px;
     font-size: 18px;
     border: 1px solid #ccc;
@@ -271,7 +271,7 @@ body {
     }
 
     .key {
-        padding: 12px 6px;
+        padding: 12px 12px;
         margin: 4px 2px;
     }
 
