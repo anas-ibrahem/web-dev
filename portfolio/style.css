@@ -1,0 +1,173 @@
+/* Fonts */
+
+.outfit-sans {
+    font-family: "Outfit", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.oxygen-mono-regular {
+    font-family: "Oxygen Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Declaring Vars */
+
+:root {
+
+    --white: #EBF4F6;
+    --ltblue: #37B7C3;
+    --blue: #088395;
+    --dkblue: #071952;
+    --black: #060a16;
+
+
+    --font-size: 1.3rem;
+    --mono: "Oxygen mono", monospace;
+    --sans: "Outfit", sans-serif;
+    --font-weight: 200;
+
+}
+
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+}
+
+
+body {
+    padding: 0;
+    /* padding-top: 3rem; */
+    margin: 0;
+    font-family: var(--sans);
+    background-color: var(--black);
+    color: var(--white);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+}
+
+
+/* Home Page */
+
+.nav-bar {
+    /* position: fixed; */
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    background-color: var(--black); 
+    /* z-index: 1000; */
+}
+
+nav ul{
+
+    list-style: none;
+    display: flex;
+    justify-content: center; /*justify for column*/
+    align-items: center; /*allign for row*/
+    gap: 2rem;
+    padding: 1rem 3rem 0 3rem;
+
+}
+
+nav li:first-child {
+    flex-basis: 100%;
+    text-align: left;
+    font-size: 1rem;
+}
+
+.name {
+    font-weight: 500;
+    
+}
+
+nav a {
+    color : var(--white);
+    text-decoration: none;
+    display: block;
+}
+
+.fa-laptop-code{
+    padding-left: 0.4rem;
+    font-size: 1.3rem ;
+    color: var(--ltblue);
+}
+
+nav a:hover,
+nav [class*="fa-"]:hover {
+    color: var(--ltblue);
+}
+
+#intro {
+    padding: 4rem 3rem 4rem 3rem;
+    margin: 0 auto;
+}
+
+#intro span {
+    margin-top: 11px;
+    text-align: left;
+    border-radius: 10px;
+    display: block;
+    color: var(--ltblue);
+    font-size: 4rem;
+    font-family: var(--sans);
+    font-weight: 500;
+    width: 25rem;
+    animation-duration: 3s;
+    animation-name: appear;   
+    animation-timing-function: ease;
+}
+
+
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+
+.gradient {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
+    background-size: 200% 200%; /* Make sure the background is large enough to move */
+    animation: gradient 8s infinite; /* Adjust the duration as needed */
+    height: 4px;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+#projects {
+    padding: 4rem 3rem 4rem 3rem;
+    margin: 0 auto;
+}
